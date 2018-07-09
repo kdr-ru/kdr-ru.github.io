@@ -8,23 +8,6 @@
 	 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <div id = "bodyhtml"></div>
-<script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
-<script>
-  // Initialize Firebase
-  var config = {
-    apiKey: "AIzaSyApJGZRyljDR7ruuaemhntMhU5q0To7ADo",
-    authDomain: "test-3078b.firebaseapp.com",
-    databaseURL: "https://test-3078b.firebaseio.com",
-    projectId: "test-3078b",
-    storageBucket: "test-3078b.appspot.com",
-    messagingSenderId: "666900252034"
-  };
-  firebase.initializeApp(config);
-	
-var ref = firebase.database().ref("Users");                           
-output = document.getElementById("bodyhtml");
-    output.innerHTML = JSON.stringify(snapshot.val(), null, 2);
-</script>
-	
+
 
 </html>
