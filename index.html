@@ -21,7 +21,7 @@
   };
   firebase.initializeApp(config);
 	
-var ref = firebase.database().ref();                           
+var ref = firebase.database().ref("Users");                           
 output = document.getElementById("bodyhtml");
     output.innerHTML = JSON.stringify(snapshot.val(), null, 2);
 </script>
