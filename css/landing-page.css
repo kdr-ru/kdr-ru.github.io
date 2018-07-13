@@ -40,10 +40,11 @@ h6 {
 }
 
 .intro-message {
-    position: relative;
+    
+    /*position: relative;*/
     padding-top: 20%;
     padding-bottom: 20%;
-    
+
 }
 
 .intro-message > h1 {
