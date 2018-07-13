@@ -43,11 +43,7 @@ h6 {
     position: relative;
     padding-top: 20%;
     padding-bottom: 20%;
-    text-shadow:
-    -1px -1px 0 #acdda0,
-    1px -1px 0 #acdda0,
-    -1px 1px 0 #acdda0,
-    1px 1px 0 #acdda0;
+    
 }
 
 .intro-message > h1 {
