@@ -135,9 +135,8 @@ h6 {
 }
 
 .banner-social-buttons {
-     display: block;
-        margin-bottom: 20px;
-        padding: 0;
+    float: right;
+    margin-top: 0;
 }
 
 @media(max-width:1199px) {
