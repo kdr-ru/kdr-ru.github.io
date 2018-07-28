@@ -135,7 +135,8 @@ h6 {
 }
 
 .banner-social-buttons {
-    float: right;
+    
+    display: block;
     margin-top: 0;
 }
 
