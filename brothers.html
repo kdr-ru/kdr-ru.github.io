@@ -209,7 +209,7 @@
     querySnapshot.forEach(function(doc) {
         // doc.data() is never undefined for query doc snapshots
         console.log(doc.id);
-        document.getElementById("DATADIV").innerHTML = doc.data().names + "<br/>" + document.getElementById("DATADIV").innerHTML;
+        document.getElementById("DATADIV").innerHTML = document.getElementById("DATADIV").innerHTML+"<br/>" +doc.data().names ;
     });
 });
 
