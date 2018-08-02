@@ -204,7 +204,8 @@
   const settings = {/* your settings... */ timestampsInSnapshots: true};
   firestore.settings(settings);
   var db = firebase.firestore();
-  db.collection("members").where("num",">=", 1).orderBy("num").then(function(querySnapshot) {
+  var membersref = db.collection("members");
+  membersref.where("num",">=", 1).orderBy("num").then(function(querySnapshot) {
     querySnapshot.forEach(function(doc) {
         // doc.data() is never undefined for query doc snapshots
         console.log(doc.id);
