@@ -207,6 +207,7 @@
   db.collection("members").get().orderBy("num", "asc").then(function(querySnapshot) {
     querySnapshot.forEach(function(doc) {
         // doc.data() is never undefined for query doc snapshots
+        console.log(doc.id);
         document.getElementById("DATADIV").innerHTML = doc.data().names + "<br/>" + document.getElementById("DATADIV").innerHTML;
     });
 });
