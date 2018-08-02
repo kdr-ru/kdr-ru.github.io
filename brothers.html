@@ -112,8 +112,8 @@
                 <div class="col-lg-8 col-sm-8">
                     
                     <div class="clearfix"></div>
-                    <h1 style = "font-size: 40px !important;" class="section-heading">About Us:</h1>
-                    <p class="lead" style = "font-size: 28px;">Kappa Delta Rho is a fraternity whose members strive to put honor above all in every aspect of their lives. Our chapter is a close-knit group of brothers who have a diverse set of ideals, interests, majors.</p>
+                    <h1 style = "font-size: 40px !important;" class="section-heading">Brothers</h1>
+                    <p class="lead" style = "font-size: 28px;" id= "DATADIV" ></p>
                 </div>
                 
             </div>
@@ -188,5 +188,53 @@
     <script src="js/bootstrap.min.js"></script>
 
 </body>
+<script src="https://www.gstatic.com/firebasejs/5.2.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.2.0/firebase-firestore.js"></script>
+<script type="text/javascript">
+    var config = {
+    apiKey: "AIzaSyDMjLOqtVxkc0-f7NtUjOqK7HV9uEPsFJM",
+    authDomain: "database-35bb9.firebaseapp.com",
+    databaseURL: "https://database-35bb9.firebaseio.com",
+    projectId: "database-35bb9",
+    storageBucket: "database-35bb9.appspot.com",
+    messagingSenderId: "875873196652"
+  };
+  firebase.initializeApp(config);
+  const firestore = firebase.firestore();
+  const settings = {/* your settings... */ timestampsInSnapshots: true};
+  firestore.settings(settings);
+  var db = firebase.firestore();
+  db.collection("members")
+    .onSnapshot(function(snapshot) {
+       snapshot.docChanges().forEach(function(change) {
+            if (change.type === "added") {
+                var test = document.getElementById("DATADIV").innerHTML;
+                document.getElementById("DATADIV").innerHTML = "";
+                document.getElementById("DATADIV").innerHTML = change.doc.data().names + "<br/>" + test;
+            }
+            /*
+            if (change.type === "modified") {
+                console.log("Modified city: ", change.doc.data());
+            }
+            */
+            if (change.type === "removed") {
+                document.getElementById("DATADIV").innerHTML = "";
+                db.collection("cities").get().then(function(querySnapshot) {
+                  querySnapshot.forEach(function(doc) {
+        // doc.data() is never undefined for query doc snapshots
+        document.getElementById("DATADIV").innerHTML = doc.data().names + "<br/>" + document.getElementById("DATADIV").innerHTML;
+    });
+});
+            }
 
+          
+        });
+
+
+    }, function(error) {
+        //...
+    });
+
+
+</script>
 </html>
