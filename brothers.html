@@ -204,36 +204,12 @@
   const settings = {/* your settings... */ timestampsInSnapshots: true};
   firestore.settings(settings);
   var db = firebase.firestore();
-  db.collection("members")
-    .onSnapshot(function(snapshot) {
-       snapshot.docChanges().forEach(function(change) {
-            if (change.type === "added") {
-                var test = document.getElementById("DATADIV").innerHTML;
-                document.getElementById("DATADIV").innerHTML = "";
-                document.getElementById("DATADIV").innerHTML = change.doc.data().names + "<br/>" + test;
-            }
-            /*
-            if (change.type === "modified") {
-                console.log("Modified city: ", change.doc.data());
-            }
-            */
-            if (change.type === "removed") {
-                document.getElementById("DATADIV").innerHTML = "";
-                db.collection("cities").get().then(function(querySnapshot) {
-                  querySnapshot.forEach(function(doc) {
+  db.collection("members").get().then(function(querySnapshot) {
+    querySnapshot.forEach(function(doc) {
         // doc.data() is never undefined for query doc snapshots
         document.getElementById("DATADIV").innerHTML = doc.data().names + "<br/>" + document.getElementById("DATADIV").innerHTML;
     });
 });
-            }
-
-          
-        });
-
-
-    }, function(error) {
-        //...
-    });
 
 
 </script>
