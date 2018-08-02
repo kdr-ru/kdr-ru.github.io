@@ -205,11 +205,18 @@
   firestore.settings(settings);
   var db = firebase.firestore();
   var membersref = db.collection("members");
+  document.getElementById("DATADIV").innerHTML= "";
   membersref.where("num",">=", 1).orderBy("num", "asc").get().then(function(querySnapshot) {
     querySnapshot.forEach(function(doc) {
         // doc.data() is never undefined for query doc snapshots
         console.log(doc.id);
-        document.getElementById("DATADIV").innerHTML = document.getElementById("DATADIV").innerHTML+"<br/>" +doc.data().names ;
+        if (document.getElementById("DATADIV").innerHTML == ""){
+            document.getElementById("DATADIV").innerHTML = doc.data().names;
+        }
+        else{
+            document.getElementById("DATADIV").innerHTML = document.getElementById("DATADIV").innerHTML+"<br/>" +doc.data().names ;
+        }
+        
     });
 });
 
