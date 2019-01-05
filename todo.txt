@@ -1,8 +1,6 @@
-- remove brothers page
 
 - add exec board to about
 
-- remove gallery
 
 - add page for rush schedule
 
